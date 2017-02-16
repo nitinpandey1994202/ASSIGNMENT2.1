@@ -1,106 +1,229 @@
-1)HDFS
-2)Hadoop cluster
-3)HDFS blocks
-1)HDFS:
-Ans:-The two challenges which we face in big data they are:-
-     1)-Storage
-     2)-Processing
-  According the Layman's term:-
-       there are two hadoop component available:
-       1)-Hdfs(for overtaking the storage problem)
-       2)-Map reduce(for overtaking the processing problem)
- so here HDFS came in the picture to overcome the problem of storage(because it is in large volume,variety,velocity) 
-     
-     the full name of HDFS is Hadoop distributed file system in which we actually decentralize the storing of data.
-     we make a cluster of machine to sore and process the data.The file store in HDFS provides scalable, fault-tolerant storage at low cost.
-     The HDFS software detects and compensates for hardware issues, including disk problem and server failure.HDFS stores files across the 
-     collection of servers in a cluster.
- Features of HDFS: 
-  HDFS has been designed keeping in view of the following features:
-1) Very large files: Files that are megabytes, gigabytes, terabytes, or petabytes of size.
-2) Streaming data access: HDFS is built around the idea that data is written once but
-read many times. A dataset is copied from source and then analysis is done on that
-dataset over time.
-3) Commodity hardware: Hadoop does not require expensive, highly reliable hardware
-as it is designed to run on clusters of commodity hardware.
-4)HDFS is highly configurable with a default configuration well suited for many installations. 
-Most of the time, configuration needs to be tuned only for very large clusters.
-5)The NameNode and Datanodes have built in web servers that makes it easy to check current status of the cluster.
-
-In hdfs what we do actually ,instead of taking scale up approach we follow scale out approach. 
-
-FOR EXAMPLE-
-if we have 1tb of data and we need to store that data then what we do is we make a cluster of machine and store data,so what we do actually 
-is instead of increasing one machine load we divided into subparts as cluster so store the data of 1tb we distribute it into sub sub part 
-like 10gb in each,so it helps in store of data in files as well as processing.
-
-2)Ans:-HADOOP CLUSTER: we have seen that if we compare the data storage in 1990 it is totally different with today's scenario.
- Data Storage has grown exponentially in the recent past, but data reading speed has not improved radically.
-  As we have seen in data reading speed comparisons over time.
-  YEAR                 DATA SIZE             TRANSFER SPEED          TIME TAKEN
-1) 1990                1400 MB                 4.5 MB/s              5 Minutes
-2) 2010                1 TB                    100 MB/s              3 Hours
-
-3) 2013                1TB                     100 Drives            2 Minutes
-so what we see is ,as we have increasing number of drives the same data we can read in just in few minutes while in others it was taking a lot
-of time.
-so in order to reduce the processing time we use a hadoop cluster so it makes storage and processing efficient and effective.
-
-PREREQUISITES:
-The following documents describe how to install and set up a Hadoop cluster:
-
-1)Single Node Setup for first-time users.
-2)Cluster Setup for large, distributed clusters.
-
-WEB INTERFACE:-
-NameNode and DataNode each run an internal web server in order to display basic information about the current status of the cluster
-With the default configuration, 
-the NameNode front page is at http://namenode-name:50070/. It lists the DataNodes in the cluster and basic statistics of the cluster. 
-The web interface can also be used to browse the file system.
-
-BENIFITS OF BUILDING HADOOP CLUSTER:-
-1)The primary benefit to using Hadoop clusters is that they are ideally suited to analyzing big data. Big data tends to be widely 
-distributed and largely unstructured. The reason why Hadoop is well suited to this type of 
-data is because Hadoop works by breaking the data into pieces and assigning each "piece" to a specific cluster node for analysis. 
-The data does not have to be uniform because each piece of data is being handled by a separate process on a separate cluster node.
-2)Another benefit to Hadoop clusters is scalability. One of the problems with big data analysis is that just like any other type of data, 
-big data is always growing. Furthermore, big data is most useful when it is analyzed in real time, or as close to real time as possible. 
-A Hadoop cluster's parallel processing capabilities certainly help with the speed of the analysis, but as the volume of data to be 
-analyzed grows the cluster's processing power may become inadequate. 
- it is possible to scale the cluster by adding additional cluster nodes.
-3)A third benefit to Hadoop clusters is cost. This might sound strange when you consider that big data analysis is an enterprise IT function, 
-and historically speaking, 
-few things in enterprise IT have ever been cheap. However, Hadoop clusters can prove to be a very cost-effective solution.
-
-REASON WHY HADOOP IS INEXPENSIVE:
-There are two main reasons why Hadoop clusters tend to be inexpensive. The required software is open source, so that helps.
-In fact,  we can download the Apache Hadoop distribution for free. Also, Hadoop costs can be held down by commodity hardware.
-It is possible to build a powerful Hadoop cluster without spending a fortune on server hardware.
-
-3)HDFS BLOCKS:
-ANs:-When you store a file in HDFS, the system breaks it down into a set of individual blocks and stores these blocks in various slave nodes in the Hadoop cluster. 
-This is an entirely normal thing to do, as all file systems break files down into blocks before storing them to disk.
- 
- EXAMPLE- if we have 400 mb data, so we break it into different different blocks.
- like  400 mb data divided into 4 block ,1)1st block 128 mb
-                                         2)2nd block 128 mb
-                                         3)3rd block 128 mb
-                                         4)4th block 16 mb 
-  ->HDFS make sure that files are split into evenly sized blocks that match the predefined block size for the Hadoop instance,
-  as in above example that block size is 128MB.     
-  The concept of storing a file as a collection of blocks is entirely consistent with how file systems normally work. But what’s different about HDFS is the scale.
-  ->A typical block size that we had seen in a file system under Linux is 4KB, whereas a typical block size in Hadoop is 128MB.
-  This value is configurable, and it can be customized, as both a new system default and a custom value for individual files.
-  Hadoop was designed to store data at the petabyte scale, where any potential limitations to scaling out are minimized. 
-  The high block size is a direct consequence of this need to store data on a massive scale.
-  WHY HADOOP BLOCK'S:-
-  ->First of all, every data block stored in HDFS has its own metadata and needs to be tracked by a central server so that applications 
-  needing to access a specific file can be directed to wherever all the file’s blocks are stored. If the block size were in the kilobyte range, 
-  even modest volumes of data in the terabyte scale would overwhelm the metadata server with too many blocks to track.
-  ->Second, HDFS is designed to enable high throughput so that the parallel processing of these large data sets happens as quickly as possible. 
-  The key to Hadoop’s scalability on the data processing side is, 
-  and always will be, parallelism — the ability to process the individual blocks of these large files in parallel.
-  ->To enable efficient processing, a balance needs to be struck. On one hand, the block size needs to be large enough to warrant the resources dedicated to an individual unit of data processing 
-  (for instance, a map or reduce task). On the other hand, 
-  the block size can’t be so large that the system is waiting a very long time for one last unit of data processing to finish its work.
+a) ANS
+ 
+public class acad {   
+ 
+public static void main(String[] args) {
+ 
+int a=1;
+ 
+int b=2;
+ 
+System.out.println(a+b); 
+ 
+}
+ 
+}
+ 
+ 
+ 
+b) ANS-
+ 
+import java.util.*;
+ 
+public class acad {   
+ 
+public static void main(String[] args) {
+ 
+Scanner sc=new Scanner(System.in);
+ 
+int a=sc.nextInt();
+ 
+int b=sc.nextInt();
+ 
+System.out.println(a+b);   
+ 
+}   
+ 
+}
+ 
+ 
+ 
+c.ANS-
+ 
+import java.util.*;
+ 
+public class acad {
+ 
+static int sum(int a,int b)
+ 
+{
+ 
+return a+b;
+ 
+}
+ 
+public static void main(String[] args) {
+ 
+Scanner sc=new Scanner(System.in);
+ 
+System.out.print("First number is:");
+ 
+int a=sc.nextInt();
+ 
+System.out.print("Second number is:");
+ 
+int b=sc.nextInt();
+ 
+System.out.println("Sum is:"+sum(a,b));   
+ 
+}   
+ 
+}
+ 
+ 
+ 
+d ANS-
+ 
+import java.util.*;
+ 
+public class acad {   
+ 
+public static void main(String[] args) {
+ 
+Scanner sc=new Scanner(System.in);
+ 
+System.out.print("First number is:");
+ 
+int a=sc.nextInt();
+ 
+System.out.print("Second number is:");
+ 
+int b=sc.nextInt();
+ 
+for(int i=a+1;i<b;i++)
+ 
+{
+ 
+System.out.println(i);
+ 
+}
+ 
+}   
+ 
+}
+ 
+ 
+ 
+e) ANS-
+ 
+import java.util.*;
+ 
+public class acad {   
+ 
+public static void main(String[] args) {
+ 
+Scanner sc=new Scanner(System.in);
+ 
+int a=sc.nextInt();   
+ 
+for(int i=1;i<11;i++)
+ 
+{
+ 
+System.out.println(a+"x"+i+"="+(a*i));
+ 
+}
+ 
+}   
+ 
+} 
   
+f) ANS-
+ 
+import java.util.*;
+ 
+public class acad {
+ 
+static int sum(int a,int b)
+ 
+{
+ 
+return a+b;
+ 
+}
+ 
+static int sum(int a,int b,int c)
+ 
+{
+ 
+return a+b+c;
+ 
+}     
+ 
+public static void main(String[] args) {
+ 
+Scanner sc=new Scanner(System.in);
+ 
+System.out.print("First number is:");
+ 
+int a=sc.nextInt();
+ 
+System.out.print("Second number is:");
+ 
+int b=sc.nextInt();
+ 
+System.out.print("Third number is:");
+ 
+int c=sc.nextInt();
+ 
+System.out.println("Sum is:"+sum(a,b,c));   
+ 
+}   
+ 
+}
+ 
+ 
+ 
+g) ANS-
+ 
+Yes, we can overload the method with same return type. In prevoius question i overloaded "sum" method with different number
+ 
+of inputs but the return type is int. It can be different return type or same return type.
+ 
+ 
+
+ 
+ 
+h) ANS-
+ 
+import java.util.*;
+ 
+public class acad {         
+ 
+public static void main(String[] args) {
+ 
+Scanner sc=new Scanner(System.in);
+ 
+int n=sc.nextInt();
+ 
+int[] a=new int[n];
+ 
+int[] b=new int[n];
+ 
+for(int i=0;i<n;i++)
+ 
+{
+ 
+a[i]=sc.nextInt();
+ 
+}
+ 
+Arrays.sort(a);
+ 
+for(int i=0;i<n;i++)
+ 
+{ 
+ 
+b[i]=a[n-i-1];
+ 
+}
+ 
+for(int i=0;i<n;i++)
+ 
+{
+ 
+System.out.println(b[i]);
+ 
+}
+ 
+}
